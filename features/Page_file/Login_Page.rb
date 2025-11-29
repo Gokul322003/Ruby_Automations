@@ -19,9 +19,16 @@ class LoginPage
     }
 
     @register_link = { xpath: "//a[text()='Register']" }
+    @register_button ={ xpath: "//input[@value='Register']"}
+    @username = {xpath: "//input[@name='username']"}
+    @password = {xpath: "//input[@name='password']"}
+    @login_btn = {xpath: "//input[@value='Log In']"}
+    @welcome_text = {xpath: "//div[@id ='leftPanel']/p"}
+
+
   end
 
-  def open_registration
+  def registration
     @driver.find_element(@register_link).click
   end
 
@@ -33,5 +40,22 @@ class LoginPage
     data.each do |field, value|
       fill_field(field, value)
     end
+    end
+
+    def register_btn
+      @driver.find_element(@register_button).click
+    end
+
+    def login(username, password)
+      @driver.find_element(@username).send_keys(username)
+      @driver.find_element(@password).send_keys(password)
+      @driver.find_element(@login_btn).click
+    end
+  def verify_login()
+    @driver.find_element(@welcome_text).text
+
   end
-end
+
+
+  end
+

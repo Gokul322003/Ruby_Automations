@@ -1,7 +1,6 @@
 Given("I am on the registration page") do
   @page = LoginPage.new(@driver)
-  @driver.navigate.to("https://parabank.parasoft.com")
-  @page.open_registration
+  @page.registration
 end
 
 When("I fill the registration form") do
@@ -26,6 +25,23 @@ end
 
 Then("the registration should be successful") do
   # you can add assertion here
-  sleep(100)
+  sleep(10)
   puts "Registration submitted successfully!"
 end
+
+And("Click the Registration Button")do
+  @page.register_btn
+end
+
+Given("I login with userid {string} and password {string}") do |userid, password|
+  # @page = LoginPage.new(@driver)
+  @page.login(userid, password)
+end
+
+Then("Verify the Login is successful with {string}") do |text|
+  @welcome_text = @page.verify_login
+  expect @welcome_text.include?(text)
+end
+
+
+
