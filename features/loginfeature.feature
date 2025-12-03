@@ -11,12 +11,12 @@ Feature: Registration
 
 #User Login With his credentials
     Scenario: Login with the user
-      Given I login with userid "johndoe" and password "password"
+      Given I login as "user1"
       Then Verify the Login is successful with "Welcome John Doe"
 
 #Open New Account
       Scenario: Open New Account
-        Given I login with userid "johndoe" and password "password"
+        Given I login as "user1"
         Given Users Click on Open New Account
         Then User Selecting "CHECKING" type of account
         And the registration should be successful

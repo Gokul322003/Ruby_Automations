@@ -1,6 +1,8 @@
+require_relative '../../features/support/hooks'
 class LoginPage
   def initialize(driver)
     @driver = driver
+    @generic_page = Generic_page.new(@driver)
 
     @fields = {
       first_name: { id: "customer.firstName" },
@@ -29,33 +31,40 @@ class LoginPage
   end
 
   def registration
-    @driver.find_element(@register_link).click
+    @generic_page.click_event(@register_link)
   end
 
-  def fill_field(field, value)
-    @driver.find_element(@fields[field]).send_keys(value)
-  end
+
+  # def fill_field(field, value)
+  #   @driver.find_element(@fields[field]).send_keys(value)
+  # end
+  #
 
   def fill_form(data)
     data.each do |field, value|
-      fill_field(field, value)
+      @generic_page.send_key_event(field, value)
+      # fill_field(field, value)
     end
     end
 
     def register_btn
-      @driver.find_element(@register_button).click
+      @generic_page.click_event(@register_button)
     end
+
 
     def login(username, password)
-      @driver.find_element(@username).send_keys(username)
-      @driver.find_element(@password).send_keys(password)
-      @driver.find_element(@login_btn).click
+      @generic_page.send_key_event(@username, username)
+      @generic_page.send_key_event(@password, password)
+      # @driver.find_element(@username).send_keys(username)
+      # @driver.find_element(@password).send_keys(password)
+      @generic_page.click_event(@login_btn)
     end
-  def verify_login()
-    @driver.find_element(@welcome_text).text
+
+
+  def verify_login
+    @generic_page.grab_text(@welcome_text)
 
   end
-
 
   end
 

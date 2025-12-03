@@ -33,10 +33,12 @@ And("Click the Registration Button")do
   @page.register_btn
 end
 
-Given("I login with userid {string} and password {string}") do |userid, password|
-  # @page = LoginPage.new(@driver)
-  @page.login(userid, password)
-end
+Given("I login as {string}") do |user|
+    username = TESTDATA["Userid"][user]
+    password = TESTDATA["Password"][user]
+
+    @page.login(username, password)
+  end
 
 Then("Verify the Login is successful with {string}") do |text|
   @welcome_text = @page.verify_login

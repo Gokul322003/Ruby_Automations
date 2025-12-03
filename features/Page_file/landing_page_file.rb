@@ -1,6 +1,7 @@
 class Landing_Page
   def initialize(driver)
     @driver = driver
+    @generic_page = Generic_page.new(@driver)
 
     # Open New Account
     @open_account = {link_text: "Open New Account"}
@@ -9,14 +10,12 @@ class Landing_Page
   end
 
   def click_open_account
-    @driver.find_element(@open_account).click
+    @generic_page.click_event(@open_account)
   end
 
 
 def select_type_account(account_type)
-  drop = @driver.find_element(@type_account)
-  option = Selenium::WebDriver::Support::Select.new(drop)
-  option.select_by(:text,account_type)
+  @generic_page.select_drop_by_text(account_type)
 end
 
 end
