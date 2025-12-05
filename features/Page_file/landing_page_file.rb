@@ -11,11 +11,12 @@ class Landing_Page
 
   def click_open_account
     @generic_page.click_event(@open_account)
+    @generic_page.take_screenshot(@driver, "Landing_Page", "Open_account")
   end
 
 
 def select_type_account(account_type)
-  @generic_page.select_drop_by_text(account_type)
+  @generic_page.select_drop_by_text(@type_account, account_type)
 end
 
 end

@@ -5,15 +5,15 @@ end
 
 When("I fill the registration form") do
   data = {
-    first_name: "John",
-    last_name: "Doe",
+    first_name: "Joh",
+    last_name: "Snow",
     address: "123 Main St",
     city: "NYC",
     state: "NY",
     zipcode: "10001",
     phone: "1234567890",
     ssn: "5555",
-    username: "johndoe",
+    username: "johnsnow",
     password: "password",
     confirm: "password"
 
@@ -26,6 +26,7 @@ end
 Then("the registration should be successful") do
   # you can add assertion here
   sleep(10)
+
   puts "Registration submitted successfully!"
 end
 

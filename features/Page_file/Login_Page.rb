@@ -35,20 +35,20 @@ class LoginPage
   end
 
 
-  # def fill_field(field, value)
-  #   @driver.find_element(@fields[field]).send_keys(value)
-  # end
-  #
+  def fill_field(field, value)
+    @driver.find_element(@fields[field]).send_keys(value)
+  end
+
 
   def fill_form(data)
     data.each do |field, value|
-      @generic_page.send_key_event(field, value)
-      # fill_field(field, value)
+       fill_field(field, value)
     end
     end
 
     def register_btn
       @generic_page.click_event(@register_button)
+      @generic_page.take_screenshot(@driver, "LoginPage", "Register_success")
     end
 
 
@@ -58,6 +58,7 @@ class LoginPage
       # @driver.find_element(@username).send_keys(username)
       # @driver.find_element(@password).send_keys(password)
       @generic_page.click_event(@login_btn)
+      @generic_page.take_screenshot(@driver, "LoginPage", "Login_success")
     end
 
 

@@ -6,7 +6,7 @@ Feature: Registration
     Given I am on the registration page
     Then I fill the registration form
     Then Click the Registration Button
-#    And the registration should be successful
+    And the registration should be successful
 
 
 #User Login With his credentials
