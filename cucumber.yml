@@ -1,1 +1,1 @@
-default: --format pretty --color --strict
+default: --format pretty --color --strict --format html --out C:\Users\sarat\RubymineProjects\Ruby_Automation\Reports\report.html

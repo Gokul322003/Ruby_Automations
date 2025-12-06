@@ -1,4 +1,5 @@
 require_relative '../../features/support/hooks'
+
 class LoginPage
   def initialize(driver)
     @driver = driver
@@ -48,7 +49,6 @@ class LoginPage
 
     def register_btn
       @generic_page.click_event(@register_button)
-      @generic_page.take_screenshot(@driver, "LoginPage", "Register_success")
     end
 
 
@@ -58,7 +58,7 @@ class LoginPage
       # @driver.find_element(@username).send_keys(username)
       # @driver.find_element(@password).send_keys(password)
       @generic_page.click_event(@login_btn)
-      @generic_page.take_screenshot(@driver, "LoginPage", "Login_success")
+
     end
 
 

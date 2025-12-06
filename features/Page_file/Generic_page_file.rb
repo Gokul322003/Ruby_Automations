@@ -30,7 +30,7 @@ class Generic_page
 
 
 
-  def take_screenshot(driver, scenario_name, image_name)
+  def take_screenshot(scenario_name, image_name)
 
     base_folder = "output"
 
@@ -40,10 +40,10 @@ class Generic_page
     scenario_path = File.join(day_path, scenario_name)
     FileUtils.mkdir_p(scenario_path)
 
-    timestamp = Time.now.strftime("%Y-%m-%d_%H-%M-%S")
+    timestamp = Time.now.strftime("%Y-%m-%d_%H-%M")
     file_path = File.join(scenario_path, image_name+"_#{timestamp}.png")
 
-    driver.save_screenshot(file_path)
+    @driver.save_screenshot(file_path)
 
   end
 
