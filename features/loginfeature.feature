@@ -13,7 +13,7 @@ Feature: Registration
 #User Login With his credentials
     Scenario: Login with the user
       Given I login as "user1"
-      Then Verify the Login is successful with "Welcome Joh Snow"
+      Then Verify the Login is successful with "Welcome John Snow"
       Then Take Screenshot of scenario "Login_Page" and the file name is "Login_Success"
 
 #Open New Account

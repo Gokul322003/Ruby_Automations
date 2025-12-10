@@ -1,4 +1,4 @@
-require_relative '../Page_file/landing_page_file'
+# require_relative '../Page_file/landing_page_file'
 require 'selenium-webdriver'
 require 'fileutils'
 class Generic_page

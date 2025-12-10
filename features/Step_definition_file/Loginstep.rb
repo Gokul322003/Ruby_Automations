@@ -1,4 +1,4 @@
-require_relative '../Page_file/Generic_page_file'
+require_relative '../Page_file/generic_page_file'
 @generic_page = Generic_page.new(@driver)
 
 

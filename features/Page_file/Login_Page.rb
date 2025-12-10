@@ -1,9 +1,11 @@
 require_relative '../../features/support/hooks'
+require_relative '../Page_file/generic_page_file'
 
-class LoginPage
+class LoginPage < Generic_page
   def initialize(driver)
     @driver = driver
-    @generic_page = Generic_page.new(@driver)
+    super(driver)
+    # @generic_page = Generic_page.new(@driver)
 
     @fields = {
       first_name: { id: "customer.firstName" },
@@ -32,7 +34,7 @@ class LoginPage
   end
 
   def registration
-    @generic_page.click_event(@register_link)
+    click_event(@register_link)
   end
 
 
@@ -48,22 +50,25 @@ class LoginPage
     end
 
     def register_btn
-      @generic_page.click_event(@register_button)
+      click_event(@register_button)
     end
 
 
     def login(username, password)
-      @generic_page.send_key_event(@username, username)
-      @generic_page.send_key_event(@password, password)
+      send_key_event(@username, username)
+      send_key_event(@password, password)
       # @driver.find_element(@username).send_keys(username)
       # @driver.find_element(@password).send_keys(password)
-      @generic_page.click_event(@login_btn)
+      click_event(@login_btn)
 
     end
 
 
   def verify_login
-    @generic_page.grab_text(@welcome_text)
+    # @generic_page.grab_text(@welcome_text)
+    grab_text(@welcome_text)
+
+
 
   end
 
